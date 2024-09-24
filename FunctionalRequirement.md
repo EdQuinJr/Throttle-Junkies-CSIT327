@@ -1,2 +1,1 @@
-touch FunctionalRequirements.md
-
+nano FunctionalRequirements.md
