@@ -1,280 +1,319 @@
-body {  
-    font-family: Arial, sans-serif;  
-    margin: 0;  
-    padding: 0;  
-    background-color: #f4f4f4; /* Background color for the body */  
-}  
+:root {
+    /* Green */
+    --primary-color: #4FB372;
+    /* Gold */
+    --secondary-color: #CDAB4B;
+    /* Dark Neutral */
+    --navbar-color: #3A7A5E;
+    --light: #F5F5F5;
+    --dark: #2E2E2E;
 
-header {  
-    background: #004080;  
-    color: #fff;  
-    padding: 15px 20px;  
-    display: flex;  
-    justify-content: space-between;  
-    align-items: center;  
-}  
+    /* Primary Font */
+    --primary-font: 'Kaushan Script', cursive;
+    /* Secondary Font */
+    --secondary-font: 'Lobster', cursive;
+    /* Text Font */
+    --text-font: 'Roboto Condensed', sans-serif;
+}
 
-nav a {  
-    color: #fff;  
-    margin: 0 20px;  
-    text-decoration: none;  
-    font-weight: bold;  
-}  
+.primary-font {
+    font-family: var(--primary-font);
+    color: var(--primary-color);
+}
 
-.auth-buttons {  
-    display: flex;  
-    align-items: center;  
-}  
+.secondary-font {
+    font-family: var(--secondary-font);
+    color: var(--secondary-color);
+}
 
-.auth-buttons button {  
-    background: #007BFF;  /* Make sure no properties are missing semicolons */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-left: 10px;
-    font-size: 16px;
-    transition: background 0.3s, transform 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}  
+body {
+    font-family: var(--text-font);
+    margin: 0;
+    padding: 0;
+    background-color: var(--light);
+    /* Background color for the body */
+}
 
-.auth-buttons button:hover {  
-    background: #0056b3;  
-    transform: translateY(-2px);  
-}.hero {
-    background-image: url('../images/bg.jpeg'); /* Relative path to the new image */
+.hero {
+    display: flex;
+    flex-direction: column;
+    background-image: url('../images/hero-background.jpg');
+    /* Relative path to the new image */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 400px;
-    display: flex;
+    height: 100vh;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: relative;
 }
 
-
-
-.hero::before {  
-    content: "";  
-    position: absolute;  
-    top: 0;  
-    left: 0;  
-    right: 0;  
-    bottom: 0;  
-    background: rgba(0, 0, 0, 0.5);  
-    z-index: 1;  
-}  
-
-.hero h1, .hero p {  
-    color: white;  
-    position: relative;  
-    z-index: 2;  
-}  
-
-.hero h1 {  
-    font-size: 48px;  
-    margin: 0;  
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);  
-}  
-
-.hero p {  
-    font-size: 20px;  
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);  
-}  
-
-.container {  
-    width: 80%;  
-    margin: auto;  
-    padding: 20px 0;  
-}  
-
-.products {  
-    display: flex;  
-    flex-wrap: wrap;  
-    justify-content: space-between;  
-    margin-top: 20px;  
-}  
-
-.product {  
-    background: white;  
-    border: 1px solid #ddd;  
-    border-radius: 5px;  
-    padding: 15px;  
-    margin: 10px;  
-    width: calc(33% - 20px);  
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  
-    transition: transform 0.2s;  
-}  
-
-.product:hover {  
-    transform: scale(1.05);  
-}  
-
-.product img {  
-    width: 100%;  
-    height: auto;  
-    border-radius: 5px;  
-}  
-
-.product h3 {  
-    margin: 10px 0;  
-    font-size: 20px;  
-}  
-
-.product p {  
-    margin: 5px 0;  
-    font-size: 18px;  
-    font-weight: bold;  
-}  
-
-/* Login Modal Styles */  
-.login-modal {  
-    display: none; /* Start hidden */  
-    position: fixed;  
-    top: 50%;  
-    left: 50%;  
-    transform: translate(-50%, -50%);  
-    background: white;  
-    padding: 30px;  
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  
-    border-radius: 10px; /* Rounded corners for the modal */  
-    z-index: 10; /* Ensure modal is above overlay */  
-    width: 400px; /* Fixed width for a consistent look */  
-}  
-
-.login-modal h2 {  
-    margin-bottom: 20px; /* Space below heading */  
-    font-size: 24px;  
-}  
-
-.login-modal label {  
-    display: block; /* Stack labels on new lines */  
-    margin-bottom: 5px; /* Space between label and input field */  
-    font-weight: bold;  
-}  
-
-.login-modal input[type="email"],  
-.login-modal input[type="password"] {  
-    width: 100%; /* Full width inputs */  
-    padding: 10px; /* Padding inside the inputs */  
-    margin-bottom: 15px; /* Space between input fields */  
-    border: 1px solid #ddd; /* Light border */  
-    border-radius: 5px; /* Rounded corners */  
-    transition: border-color 0.3s; /* Smooth transition for focus effect */  
-}  
-
-.login-modal input[type="email"]:focus,  
-.login-modal input[type="password"]:focus {  
-    border-color: #007BFF; /* Blue border when focused */  
-}  
-
-.login-modal button {  
-    background: #007BFF;  
-    color: white;  
-    border: none;  
-    padding: 10px;  
-    width: 100%; /* Full width button */  
-    border-radius: 5px;  
-    cursor: pointer;  
-    font-size: 16px;  
-    transition: background 0.3s;  
-    margin-top: 10px; /* Space above button */  
-}  
-
-.login-modal button:hover {  
-    background: #0056b3; /* Darken button on hover */  
-}  
-
-/* Overlay Styles */  
-.overlay {  
-    display: none; /* Start hidden */  
-    position: fixed;  
-    top: 0;  
-    left: 0;  
-    width: 100%;  
-    height: 100%;  
-    background: rgba(0, 0, 0, 0.7);  
-    z-index: 5; /* Ensure overlay is below modal */  
-}  
-
-/* Responsive Styles */  
-@media (max-width: 768px) {  
-    .login-modal {  
-        width: 90%; /* Full width on smaller screens */  
-    }  
-
-    .product {  
-        width: calc(50% - 20px); /* Two columns on tablets */  
-    }  
-
-    .products {  
-        justify-content: center; /* Center products on smaller screens */  
-    }  
-}  
-
-@media (max-width: 480px) {  
-    .product {  
-        width: 100%; /* Full width on mobile */  
-    }  
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 1;
 }
-/* Signup Modal Styles (similar to login modal) */  
-.signup-modal {  
-    display: none; /* Start hidden */  
-    position: fixed;  
-    top: 50%;  
-    left: 50%;  
-    transform: translate(-50%, -50%);  
-    background: white;  
-    padding: 30px;  
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  
-    border-radius: 10px; /* Rounded corners for the modal */  
-    z-index: 10; /* Ensure modal is above overlay */  
-    width: 400px; /* Fixed width for a consistent look */  
-}  
 
-.signup-modal h2 {  
-    margin-bottom: 20px; /* Space below heading */  
-    font-size: 24px;  
-}  
-
-.signup-modal label {  
-    display: block; /* Stack labels on new lines */  
-    margin-bottom: 5px; /* Space between label and input field */  
-    font-weight: bold;  
-}  
-
-.signup-modal input {  
-    width: 100%; /* Full width inputs */  
-    padding: 10px; /* Padding inside the inputs */  
-    margin-bottom: 15px; /* Space between input fields */  
-    border: 1px solid #ddd; /* Light border */  
-    border-radius: 5px; /* Rounded corners */  
-    transition: border-color 0.3s; /* Smooth transition for focus effect */  
-}  
-
-.signup-modal input:focus {  
-    border-color: #007BFF; /* Blue border when focused */  
-}  
-
-.signup-modal button {  
-    background: #007BFF;  
-    color: white;  
-    border: none;  
-    padding: 10px;  
-    width: 100%; /* Full width button */  
-    border-radius: 5px;  
-    cursor: pointer;  
-    font-size: 16px;  
-    transition: background 0.3s;  
-    margin-top: 10px; /* Space above button */  
-}  
-
-.signup-modal button:hover {  
-    background: #0056b3; /* Darken button on hover */  
+.hero h1,
+.hero p,
+.hero div {
+    color: white;
+    position: relative;
+    z-index: 2;
 }
+
+.hero h1 {
+    font-size: 96px;
+    margin: 0;
+    text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.7);
+}
+
+.hero p {
+    font-size: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: calc(33% - 50px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.product:hover {
+    transform: scale(1.15);
+}
+
+.product img {
+    width: 75%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product h3 {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.product p {
+    margin: 5px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Login Modal Styles */
+.login-modal {
+    display: none;
+    /* Start hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    /* Rounded corners for the modal */
+    z-index: 10;
+    /* Ensure modal is above overlay */
+    width: 400px;
+    /* Fixed width for a consistent look */
+}
+
+.login-modal h2 {
+    margin-bottom: 20px;
+    /* Space below heading */
+    font-size: 24px;
+}
+
+.login-modal label {
+    display: block;
+    /* Stack labels on new lines */
+    margin-bottom: 5px;
+    /* Space between label and input field */
+    font-weight: bold;
+}
+
+.login-modal input[type="email"],
+.login-modal input[type="password"] {
+    width: 100%;
+    /* Full width inputs */
+    padding: 10px;
+    /* Padding inside the inputs */
+    margin-bottom: 15px;
+    /* Space between input fields */
+    border: 1px solid #ddd;
+    /* Light border */
+    border-radius: 5px;
+    /* Rounded corners */
+    transition: border-color 0.3s;
+    /* Smooth transition for focus effect */
+}
+
+.login-modal input[type="email"]:focus,
+.login-modal input[type="password"]:focus {
+    border-color: #007BFF;
+    /* Blue border when focused */
+}
+
+.login-modal button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    /* Full width button */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    margin-top: 10px;
+    /* Space above button */
+}
+
+.login-modal button:hover {
+    background: #0056b3;
+    /* Darken button on hover */
+}
+
+/* Overlay Styles */
+.overlay {
+    display: none;
+    /* Start hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 5;
+    /* Ensure overlay is below modal */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .login-modal {
+        width: 90%;
+        /* Full width on smaller screens */
+    }
+
+    .product {
+        width: calc(50% - 20px);
+        /* Two columns on tablets */
+    }
+
+    .products {
+        justify-content: center;
+        /* Center products on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .product {
+        width: 100%;
+        /* Full width on mobile */
+    }
+}
+
+/* Signup Modal Styles (similar to login modal) */
+.signup-modal {
+    display: none;
+    /* Start hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    /* Rounded corners for the modal */
+    z-index: 10;
+    /* Ensure modal is above overlay */
+    width: 400px;
+    /* Fixed width for a consistent look */
+}
+
+.signup-modal h2 {
+    margin-bottom: 20px;
+    /* Space below heading */
+    font-size: 24px;
+}
+
+.signup-modal label {
+    display: block;
+    /* Stack labels on new lines */
+    margin-bottom: 5px;
+    /* Space between label and input field */
+    font-weight: bold;
+}
+
+.signup-modal input {
+    width: 100%;
+    /* Full width inputs */
+    padding: 10px;
+    /* Padding inside the inputs */
+    margin-bottom: 15px;
+    /* Space between input fields */
+    border: 1px solid #ddd;
+    /* Light border */
+    border-radius: 5px;
+    /* Rounded corners */
+    transition: border-color 0.3s;
+    /* Smooth transition for focus effect */
+}
+
+.signup-modal input:focus {
+    border-color: #007BFF;
+    /* Blue border when focused */
+}
+
+.signup-modal button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    /* Full width button */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    margin-top: 10px;
+    /* Space above button */
+}
+
+.signup-modal button:hover {
+    background: #0056b3;
+    /* Darken button on hover */
+}
+
 .messages {
     list-style-type: none;
     padding: 10px;
@@ -287,13 +326,17 @@ nav a {
 }
 
 .messages li.success {
-    background-color: #d4edda; /* Light green */
-    color: #155724; /* Dark green */
+    background-color: #d4edda;
+    /* Light green */
+    color: #155724;
+    /* Dark green */
 }
 
 .messages li.error {
-    background-color: #f8d7da; /* Light red */
-    color: #721c24; /* Dark red */
+    background-color: #f8d7da;
+    /* Light red */
+    color: #721c24;
+    /* Dark red */
 }
 
 /* Add more styles as needed */
