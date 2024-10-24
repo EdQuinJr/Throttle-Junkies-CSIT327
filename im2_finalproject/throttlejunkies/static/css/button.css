@@ -1,0 +1,57 @@
+button {
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Filled button styles */
+.button-primary-filled {
+    background-color: var(--primary-color);
+    color: var(--light);
+    border: 2.5px solid var(--primary-color);
+}
+
+.button-primary-filled:hover {
+    background-color: darken(var(--primary-color), 10%);
+    border: 2.5px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.button-secondary-filled {
+    background-color: var(--primary-color);
+    color: var(--light);
+    border: none;
+}
+
+.button-secondary-filled:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+/* Outlined button styles */
+.button-primary-outlined {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2.5px solid var(--primary-color);
+}
+
+.button-primary-outlined:hover {
+    background-color: var(--primary-color);
+    color: var(--light);
+}
+
+.button-secondary-outlined {
+    background-color: transparent;
+
+    color: var(--secondary-color);
+    border: 2.5px solid var(--secondary-color);
+}
+
+.button-secondary-outlined:hover {
+    background-color: var(--secondary-color);
+    color: var(--light);
+}
