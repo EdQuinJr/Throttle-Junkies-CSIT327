@@ -36,3 +36,6 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'Successfully logged out.')
     return redirect('home')
+
+def about_view(request):
+    return render(request, 'about.html')
