@@ -50,7 +50,6 @@
     width: 24px; /* Adjust size as needed */
     height: 24px;
     margin-right: 10px; /* Spacing between icon and text */
-    filter: brightness(0) invert(1); /* Makes icon white */
 }
 
 .social-link:hover {

@@ -16,12 +16,13 @@ Including another URLconf
 """
 # throttlejunkies/urls.py
 from django.urls import path
-from shop.views import home, login_view, logout_view, dashboard_view, about_view  # Import from shop.views
+from shop.views import home, login_view, logout_view, dashboard_view, about_view ,signup_view # Import from shop.views
 
 urlpatterns = [
     path('', home, name='home'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
+    path('signup/', signup_view, name='signup'),
     path('products/', home, name='products'),
     path('about/', about_view, name='about'),
     path('contact/', home, name='contact'),

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .models import User
 
 def home(request):
     return render(request, 'index.html')
@@ -24,6 +25,29 @@ def login_view(request):
         return redirect('dashboard')
 
     return render(request, 'index.html')  # Render home page for GET requests
+
+def signup_view(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('first-name')
+        surname = request.POST.get('surname')
+        email = request.POST.get('signup-email')
+        password = request.POST.get('signup-password')
+        role = request.POST.get('role')
+
+        # Check if user already exists
+        if User.objects.filter(email=email).exists():
+            messages.error(request, 'Email already taken. Please try a different one.')
+            return redirect('home')
+
+        # Create new user
+        user = User.objects.create_user(email=email, first_name=first_name, password=password, role=role)
+        user.surname = surname
+        user.save()
+
+        messages.success(request, 'Account created successfully. Please log in.')
+        return redirect('home')
+
+    return render(request, 'index.html')
 
 def dashboard_view(request):
     #if not request.user.is_authenticated:
