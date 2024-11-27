@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Shop - Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Xsr.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/button.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lobster&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <body>  
+        <header class="navbar">  
+            <a href="{% url 'home' %}">   
+                <img src="{% static 'images/throttle-junkies-logo.png' %}" alt="throttle-junkies-logo">  
+            </a>  
+            <div>  
+                <nav>  
+                    <a href="{% url 'home' %}"> Home</a>  
+                    <a href="{% url 'products' %}"> Products</a>  
+                    <a href="{% url 'about' %}">About Us</a>  
+                    <a href="{% url 'contact' %}">Contact</a>  
+                    <i class="fa fa-shopping-cart" style="font-size: 20px; cursor: pointer;" onclick="openSidebar()"></i>  
+                </nav>  
+                
+                {% if user.is_authenticated %}  
+                    <button class="button-primary-filled" onclick="window.location.href='{% url 'logout' %}'">Logout</button>  
+                {% else %}  
+                    <button class="button-primary-filled" onclick="showLoginModal()">Login</button>  
+                    <button class="button-secondary-outlined" onclick="showSignupModal()">Signup</button>  
+                {% endif %}  
+            </div>  
+        </header>    
+
+
+    <!-- Sidebar -->
+    <div id="cartSidebar" class="sidebar">
+        <div>
+            <p>Your Cart</p>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
+        </div>
+        <div class="cart-items">
+            <p>No items in the cart</p>
+        </div>
+        
+        <div class="total">
+            <p>Total: <span id="totalAmount">$0</span></p>
+        </div>
+        <button class="button-primary-filled" onclick="checkout()">Checkout</button>
+    </div>
+
+    <div class="checkout-modal">
+        <h2>Checkout</h2>
+        <form>
+            <label for="full-name">Full Name:</label>
+            <input type="text" id="full-name" placeholder="Enter your full name" required>
+            
+            <label for="credit-card">Credit Card Number:</label>
+            <input type="text" id="credit-card" placeholder="Enter your credit card number" required>
+        </form>
+        <div class="modal-buttons">
+            <button class="button-primary-filled" onclick="proceedPayment()">Proceed</button>
+            <button class="button-secondary-outlined" onclick="cancelPayment()">Cancel</button>
+        </div>
+    </div>
+
+
+    <section class="centered-section">
+        <div class="centered-content">
+            <h2 class="product-name">XSR 2022</h2>
+            <p class="product-price">SRP: ₱9,000.00</p>
+            <p>The Yamaha XSR: The Yamaha XSR is a stunning modern-classic motorcycle that beautifully combines timeless retro design with the latest in cutting-edge engineering. With its lightweight yet durable frame, the XSR delivers exceptional performance, ensuring you experience every twist and turn with unmatched precision. The powerful engine roars to life with thrilling acceleration, while the bike’s agility and responsive handling allow for smooth rides on any terrain. Whether you're navigating through city streets or taking on winding country roads, the Yamaha XSR offers the perfect balance of performance, style, and comfort. It's not just a motorcycle—it's an experience that invites you to embrace the open road with confidence and flair.</p>
+        </div>
+    </section>
+
+    <!-- Specifications Section -->
+    <section class="specifications-section">
+        <div class="specifications-content">
+            <h3>Specifications</h3>
+            <p><strong>Make:</strong> YAMAHA - Revs Your Heart</p>
+            <p><strong>Model:</strong> Yamaha XSR</p>
+            <p><strong>Year:</strong> 2022</p>
+            <p><strong>Transmission:</strong> 6-Speed</p>
+            <p><strong>Fuel Capacity:</strong> 14 Liters</p>
+            <p><strong>Engine Type:</strong> 689cc, Liquid-Cooled, 4-Stroke</p>
+            <p><strong>Seat Height:</strong> 835 mm</p>
+            <p><strong>Brake System (Front / Rear):</strong> Hydraulic Disc Brakes</p>
+            <p><strong>Displacement:</strong> 689 cc</p>
+            <p><strong>Engine Oil Capacity:</strong> 2.4 Liters</p>
+            <p><strong>Front Tire:</strong> 120/70ZR17M/C (Tubeless)</p>
+            <p><strong>Rear Tire:</strong> 180/55ZR17M/C (Tubeless)</p>
+            <p><strong>Overall Dimensions:</strong> 2,075 x 815 x 1,140 (mm)</p>
+            <p><strong>Minimum Ground Clearance:</strong> 140 mm</p>
+            <p><strong>Fuel System:</strong> Fuel Injection</p>
+            <button class="button-primary-filled" onclick="addToCart('XSR', 9000.00)">Add to Cart</button>
+        </div>
+    </section>
+    
+    <div class="full-width-image-section">
+        <div class="section-content">
+            <h2>Ride with XSR 2022</h2>
+        </div>
+    </div>
+    
+
+    <div class="overlay" onclick="hideModals()"></div>
+
+    <div class="login-modal">
+        <h2>Login</h2>
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="login-email" placeholder="Enter your email" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="login-password" placeholder="Enter your password" required>
+            <button type="submit" name="login">Submit</button>
+        </form>
+        <p>Don't have an account? <a href="#" onclick="showSignupModal()">Sign up here</a></p>
+    </div>
+
+
+    <div class="signup-modal">
+        <h2>Signup</h2>
+        <form method="POST" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <label for="first-name">First Name:</label>
+            <input type="text" name="first-name" id="first-name" placeholder="Enter your first name" required>
+    
+            <label for="surname">Surname:</label>
+            <input type="text" name="surname" id="surname" placeholder="Enter your surname" required>
+    
+            <label for="signup-email">Email:</label>
+            <input type="email" name="signup-email" id="signup-email" placeholder="Enter your email" required>
+    
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number" required>
+    
+            <label for="signup-password">Password:</label>
+            <input type="password" name="signup-password" id="signup-password" placeholder="Enter your password" required>
+    
+            <label for="role">Role:</label>
+            <input type="text" name="role" id="role" placeholder="Enter your role" required>
+    
+            <button type="submit">Submit</button>
+        </form>
+        <p>Already have an account? <a href="#" onclick="showLoginModal()">Login here</a></p>
+    </div>
+    
+ 
+
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -118,3 +118,30 @@ function cancelPayment() {
     document.getElementById('full-name').value = '';
     document.getElementById('credit-card').value = '';
 }
+
+const CartManager = {
+    addToCart: function(name, price) {
+        const cartItem = { name, price };
+        cart.push(cartItem);
+        alert(`${name} has been added to your cart.`);
+        updateCart();
+    }
+};
+
+function showLearnMoreModal(name, price, description, imageSrc) {
+    // Set the values in the modal
+    document.getElementById('learnMoreTitle').innerText = name;
+    document.getElementById('learnMorePrice').innerText = `Price: $${price}`;
+    document.getElementById('learnMoreDescription').innerText = description;
+    document.getElementById('learnMoreImage').src = imageSrc;
+
+    // Show the modal
+    document.querySelector('.overlay.learn-more-overlay').style.display = 'block';
+    document.querySelector('.learn-more-modal').style.display = 'block';
+}
+
+function hideLearnMoreModal() {
+    // Hide the modal
+    document.querySelector('.overlay.learn-more-overlay').style.display = 'none';
+    document.querySelector('.learn-more-modal').style.display = 'none';
+}
