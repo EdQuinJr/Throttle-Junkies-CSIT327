@@ -110,17 +110,3 @@ catering to both casual buyers and motorcycle enthusiasts.
 > filtered based on user input.
 >
 > **Key Features**: Keyword search, advanced filtering, result sorting.
-
-- **Admin Dashboard  
-  **The platform includes an admin dashboard that provides system
-  administrators with the tools to manage the platform effectively.
-  Admins can add or remove products, manage user accounts, monitor
-  sales, and generate reports.
-
-> **Inputs**: Product data, user management commands, report criteria.
->
-> **Outputs**: Updated product listings, user account details, sales
-> reports.
->
-> **Key Features**: Product management, user management, sales
-> monitoring, report generation.
