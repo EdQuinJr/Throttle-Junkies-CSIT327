@@ -69,14 +69,6 @@
         </div>
     </div>
 
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
     <div class="hero">
         <h1>
             <a class="primary-font">Your Dream</a> 
@@ -89,8 +81,8 @@
                 <button class="button-primary-filled" onclick="window.location.href='{% url 'logout' %}'">Logout</button>
             {% else %}
                 <!-- Show login/signup buttons if not authenticated -->
-                <button class="button-primary-filled">Try now!</button>
-                <button class="button-secondary-outlined">Learn more!</button>
+                <button class="button-primary-filled">Try Now!</button>
+                <button class="button-secondary-outlined" onclick="window.location.href='{% url 'about' %}'">Learn More</button>
             {% endif %}
         </div>
     </div>
@@ -124,11 +116,11 @@
                     <h3>Xsr</h3>
                     <p>Price: $7000</p>
                     <div>
-                        <button class="button-primary-filled" 
-                                onclick="addToCart('Xsr', 7000)">Add to Cart</button>
-                        <button class="button-secondary-outlined">Learn More</button>
+                        <button class="button-primary-filled" onclick="addToCart('Xsr', 7000)">Add to Cart</button>
+                        <button class="button-secondary-outlined" onclick="window.location.href='{% url 'Xsr' %}'">Learn More</button>
                     </div>
                 </div>
+                
             </div>
         </section>
     </div>
@@ -176,8 +168,8 @@
         <p>Already have an account? <a href="#" onclick="showLoginModal()">Login here</a></p>
     </div>
     
+ 
 
-<script src="{% static 'js/script.js' %}">
-</script>
+<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

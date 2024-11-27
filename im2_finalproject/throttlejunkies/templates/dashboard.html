@@ -55,30 +55,23 @@
         <button class="button-primary-filled" onclick="checkout()">Checkout</button>
     </div>
 
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
     <div class="dashboard">
         <h1>
             <a class="primary-font">Welcome Back!</a> 
         </h1>
         <h1>
-            <a class="secondary-font">John Doe</a>
+            <a class="secondary-font">{{ user.first_name }}</a>
         </h1>
         <p>Explore our exclusive range of motorcycles and accessories!</p>
         <div>
             {% if user.is_authenticated %}
                 <!-- Show logout button if the user is authenticated -->
+                <button class="button-primary-filled">Search for Products!</button>
                 <button class="button-primary-filled" onclick="window.location.href='{% url 'logout' %}'">Logout</button>
             {% else %}
                 <!-- Show login/signup buttons if not authenticated -->
-                <button class="button-primary-filled">Search for Products!</button>
-                <button class="button-secondary-outlined">Learn more!</button>
+                
+                <button class="button-secondary-outlined" onclick="window.location.href='{% url 'about' %}'">Learn More</button>
             {% endif %}
         </div>
     </div>
@@ -114,7 +107,7 @@
                     <div>
                         <button class="button-primary-filled" 
                                 onclick="addToCart('Xsr', 7000)">Add to Cart</button>
-                        <button class="button-secondary-outlined">Learn More</button>
+                                <button class="button-secondary-outlined" onclick="window.location.href='{% url 'Xsr' %}'">Learn More</button>
                     </div>
                 </div>
             </div>

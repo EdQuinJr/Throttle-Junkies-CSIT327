@@ -63,3 +63,6 @@ def logout_view(request):
 
 def about_view(request):
     return render(request, 'about.html')
+
+def Xsr_view(request):
+    return render(request, 'Xsr.html')
