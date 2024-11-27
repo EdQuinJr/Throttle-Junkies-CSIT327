@@ -3,12 +3,7 @@
 Prepared for: Joemarie Amparo
 
 Prepared by:  
-Abella, Ricardo C. Jr.
-
 Quindao, Edgar Jr.
-
-Miel, Kaysean
-
 Cebu Institute of Technology- University  
 August 21, 2024
 
@@ -37,8 +32,7 @@ catering to both casual buyers and motorcycle enthusiasts.
   users, and sales data.
 
 - **Scope**:  
-  MotoDeal will include functionalities for browsing motorcycles and
-  accessories, completing purchases, user authentication, and
+  MotoDeal will include functionalities for browsing motorcycles completing purchases, user authentication, and
   integrating with social media. The admin dashboard will enable system
   administrators to manage products, users, and sales. Future updates
   may include advanced analytics and personalized recommendations, but
@@ -116,20 +110,6 @@ catering to both casual buyers and motorcycle enthusiasts.
 > filtered based on user input.
 >
 > **Key Features**: Keyword search, advanced filtering, result sorting.
-
-- **Social Media Integration  
-  **MotoDeal allows users to share their favorite motorcycles, parts, or
-  accessories on social media platforms directly from the site. This
-  feature supports social engagement and brand promotion by enabling
-  users to post directly to their social networks.
-
-> **Inputs**: Selected products to share, choice of social media
-> platform.
->
-> **Outputs**: Shared posts on social media with product details.
->
-> **Key Features**: Social sharing buttons, integration with popular
-> social media platforms.
 
 - **Admin Dashboard  
   **The platform includes an admin dashboard that provides system
