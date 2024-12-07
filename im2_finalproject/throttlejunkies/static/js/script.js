@@ -107,10 +107,39 @@ function proceedPayment() {
         return;
     }
 
-    alert(`Payment successful for ${fullName} with card number ${creditCard}.`);
+    // Get order details from the Checkout button's data attributes
+    const checkoutButton = document.querySelector('button[onclick="checkout()"]');
+    const orderId = checkoutButton.getAttribute('data-order-id');
+    const amount = checkoutButton.getAttribute('data-total-amount');
 
-    cancelPayment();
+    fetch('/proceed-payment/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': document.getElementById('csrf-token').value // Extract CSRF token
+        },
+        body: JSON.stringify({
+            order_id: orderId,
+            amount: amount
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Use template literals to include fullName and creditCard in the alert
+                alert(`Payment successful for ${fullName} with card number ${creditCard}.`);
+                cancelPayment();
+            } else {
+                alert(`Payment failed: ${data.error}`);
+            }
+        })
+        .catch(error => {
+            alert('An error occurred. Please try again.');
+            console.error('Error:', error);
+        });
 }
+
+
 
 function cancelPayment() {
     document.querySelector('.overlay').style.display = 'none';

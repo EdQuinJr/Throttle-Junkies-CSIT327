@@ -37,85 +37,39 @@
             {% endif %}
         </div>
     </header>
+    
+    {% block content %}
+    <h1>Order Confirmation</h1>
+    <p>Order ID: {{ order.order_id }}</p>
+    <p>Total Amount: {{ order.total_amount }}</p>
+    <p>Order Date: {{ order.order_date }}</p>
 
-    <!-- Sidebar -->
-    <div id="cartSidebar" class="sidebar">
-        <div>
-            <p>Your Cart</p>
-            <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">&times;</a>
-        </div>
-        <div class="cart-items">
-            <p>No items in the cart</p>
-        </div>
-        
-        <div class="total">
-            <p>Total: <span id="totalAmount">$0</span></p>
-        </div>
-        <button class="button-primary-filled" onclick="checkout()">Checkout</button>
-    </div>
+    <!-- Store the order data in data attributes -->
+    <button 
+        class="button-primary-filled" 
+        onclick="checkout()" 
+        data-order-id="{{ order.order_id }}" 
+        data-total-amount="{{ order.total_amount }}"
+    >
+        Checkout
+    </button>
+{% endblock %}
 
-    <div class="dashboard">
-        <h1>
-            <a class="primary-font">Welcome Back!</a> 
-        </h1>
-        <h1>
-            <a class="secondary-font">{{ user.first_name }}</a>
-        </h1>
-        <p>Explore our exclusive range of motorcycles and accessories!</p>
-        <div>
-            {% if user.is_authenticated %}
-                <!-- Show logout button if the user is authenticated -->
-                <button class="button-primary-filled">Search for Products!</button>
-                <button class="button-primary-filled" onclick="window.location.href='{% url 'logout' %}'">Logout</button>
-            {% else %}
-                <!-- Show login/signup buttons if not authenticated -->
-                
-                <button class="button-secondary-outlined" onclick="window.location.href='{% url 'about' %}'">Learn More</button>
-            {% endif %}
-        </div>
-    </div>
-    {% load static %}
-    <div class="container">
-        <section id="products">
-            <h2>Featured Products</h2>
-            <div class="products">
-                {% for product in products %}
-                    {% if product.product_id %}
-                    <div class="product">
-                        <img src="{% static 'images/' %}{{ product.name }}.jpeg" alt="{{ product.name }}">
-                        <h3>{{ product.name }}</h3>
-                        <p>Price: ${{ product.price }}</p>
-                        <div>
-                            <form method="POST" action="{% url 'add_to_cart' product.product_id %}">
-                                {% csrf_token %}
-                                <input type="number" name="quantity" value="1" min="1" class="quantity-input">
-                                <button type="submit" class="button-primary-filled">Add to Cart</button>
-                            </form>
-                            <button class="button-secondary-outlined" onclick="window.location.href='{% url 'Xsr' %}'">Learn More</button>
-                        </div>
-                    </div>
-                    {% else %}
-                        <p>Product ID is missing for {{ product.name }}</p>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </section>
-    </div>
+<div class="checkout-modal">
+    <h2>Checkout</h2>
+    <input type="hidden" id="csrf-token" value="{{ csrf_token }}">
+    <form>
+        <label for="full-name">Full Name:</label>
+        <input type="text" id="full-name" placeholder="Enter your full name" required>
 
-    <div class="checkout-modal">
-        <h2>Checkout</h2>
-        <form>
-            <label for="full-name">Full Name:</label>
-            <input type="text" id="full-name" placeholder="Enter your full name" required>
-            
-            <label for="credit-card">Credit Card Number:</label>
-            <input type="text" id="credit-card" placeholder="Enter your credit card number" required>
-        </form>
-        <div class="modal-buttons">
-            <button class="button-primary-filled" onclick="proceedPayment()">Proceed</button>
-            <button class="button-secondary-outlined" onclick="cancelPayment()">Cancel</button>
-        </div>
+        <label for="credit-card">Credit Card Number:</label>
+        <input type="text" id="credit-card" placeholder="Enter your credit card number" required>
+    </form>
+    <div class="modal-buttons">
+        <button class="button-primary-filled" onclick="proceedPayment()">Proceed</button>
+        <button class="button-secondary-outlined" onclick="cancelPayment()">Cancel</button>
     </div>
+</div>
     <div class="overlay" onclick="hideModals()"></div>
 
     <div class="login-modal">

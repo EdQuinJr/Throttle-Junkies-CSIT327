@@ -16,7 +16,7 @@ Including another URLconf
 """
 # throttlejunkies/urls.py
 from django.urls import path
-from shop.views import home, login_view, logout_view, dashboard_view, about_view ,signup_view,Xsr_view # Import from shop.views
+from shop.views import home, login_view, logout_view, dashboard_view, about_view ,signup_view,Xsr_view,search,cart_view,add_to_cart,update_cart,remove_from_cart,place_order,order_confirmation,proceed_payment,shopproduct,Yzfr1_view
 
 urlpatterns = [
     path('', home, name='home'),
@@ -24,8 +24,18 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('signup/', signup_view, name='signup'),
     path('products/', home, name='products'),
+     path('shopproduct/', shopproduct, name='shopproduct'),
+    path('search/', search, name='search'),
     path('Xsr/', Xsr_view, name='Xsr'),
+    path('Yzfr1/', Yzfr1_view, name='Yzfr1'),
     path('about/', about_view, name='about'),
     path('contact/', home, name='contact'),
     path('dashboard/', dashboard_view, name='dashboard'),
+    path('cart/', cart_view, name='cart_view'), 
+    path('add_to_cart/<int:product_id>/', add_to_cart, name='add_to_cart'),
+    path('update_cart/<int:cart_id>/', update_cart, name='update_cart'),
+    path('proceed-payment/', proceed_payment, name='proceed_payment'),
+    path('remove_from_cart/<int:cart_id>/', remove_from_cart, name='remove_from_cart'),
+    path('place_order/', place_order, name='place_order'),
+    path('order_confirmation/<int:order_id>/', order_confirmation, name='order_confirmation'),
 ]

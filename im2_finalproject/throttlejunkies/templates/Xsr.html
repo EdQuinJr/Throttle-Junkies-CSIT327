@@ -25,8 +25,7 @@
                 <nav>  
                     <a href="{% url 'home' %}"> Home</a>  
                     <a href="{% url 'products' %}"> Products</a>  
-                    <a href="{% url 'about' %}">About Us</a>  
-                    <a href="{% url 'contact' %}">Contact</a>  
+                    <a href="{% url 'about' %}">About Us</a>   
                     <i class="fa fa-shopping-cart" style="font-size: 20px; cursor: pointer;" onclick="openSidebar()"></i>  
                 </nav>  
                 
@@ -99,7 +98,7 @@
             <p><strong>Overall Dimensions:</strong> 2,075 x 815 x 1,140 (mm)</p>
             <p><strong>Minimum Ground Clearance:</strong> 140 mm</p>
             <p><strong>Fuel System:</strong> Fuel Injection</p>
-            <button class="button-primary-filled" onclick="addToCart('XSR', 9000.00)">Add to Cart</button>
+            
         </div>
     </section>
     
@@ -109,6 +108,12 @@
         </div>
     </div>
     
+    <footer class="site-footer">
+        <div class="footer-content">
+            <span class="footer-left">© Throttle Junkies</span>
+            <span class="footer-center">All rights reserved</span>
+        </div>
+    </footer>
 
     <div class="overlay" onclick="hideModals()"></div>
 

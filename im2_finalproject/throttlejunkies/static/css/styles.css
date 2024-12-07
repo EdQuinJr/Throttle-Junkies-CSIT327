@@ -1,12 +1,9 @@
 :root {
-    /* Green */
-    --primary-color: #4FB372;
-    /* Gold */
-    --secondary-color: #CDAB4B;
-    /* Dark Neutral */
-    --navbar-color: #3A7A5E;
+    --primary-color: black;
+    --secondary-color: #ffd633;
+    --navbar-color: black;
     --light: #F5F5F5;
-    --dark: #2E2E2E;
+    --dark: black;
 
     /* Primary Font */
     --primary-font: 'Kaushan Script', cursive;
@@ -18,7 +15,8 @@
 
 .primary-font {
     font-family: var(--primary-font);
-    color: var(--primary-color);
+    color: var(--secondary-color);
+    
 }
 
 .secondary-font {
@@ -173,6 +171,7 @@ body {
     border-radius: 5px;
     /* Rounded corners */
     transition: border-color 0.3s;
+    padding-right: 0px;
     /* Smooth transition for focus effect */
 }
 
@@ -180,15 +179,16 @@ body {
 .login-modal input[type="password"]:focus {
     border-color: #007BFF;
     /* Blue border when focused */
+    padding-right: 0;
 }
 
 .login-modal button {
-    background: #007BFF;
-    color: white;
-    border: none;
+    background-color: var(--secondary-color);
+    color: var(--dark);
+    border: 2.5px solid var(--secondary-color);
     padding: 10px;
     width: 100%;
-    /* Full width button */
+    
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
@@ -198,8 +198,9 @@ body {
 }
 
 .login-modal button:hover {
-    background: #0056b3;
-    /* Darken button on hover */
+    background-color: darken(var(--primary-color), 10%);
+    border: 2.5px solid var(--secondary-color);
+    color: var(--primary-color);
 }
 
 /* Overlay Styles */
@@ -249,14 +250,17 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: white;
+    background: rgb(255, 255, 255);
     padding: 30px;
+    
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     /* Rounded corners for the modal */
     z-index: 10;
     /* Ensure modal is above overlay */
     width: 400px;
+    
+    
     /* Fixed width for a consistent look */
 }
 
@@ -287,6 +291,7 @@ body {
     /* Rounded corners */
     transition: border-color 0.3s;
     /* Smooth transition for focus effect */
+    padding-right: 0px;
 }
 
 .signup-modal input:focus {
@@ -295,9 +300,9 @@ body {
 }
 
 .signup-modal button {
-    background: #007BFF;
-    color: white;
-    border: none;
+    background-color: var(--secondary-color);
+    color: var(--dark);
+    border: 2.5px solid var(--secondary-color);
     padding: 10px;
     width: 100%;
     /* Full width button */
@@ -310,8 +315,9 @@ body {
 }
 
 .signup-modal button:hover {
-    background: #0056b3;
-    /* Darken button on hover */
+    background-color: darken(var(--primary-color), 10%);
+    border: 2.5px solid var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .messages {
