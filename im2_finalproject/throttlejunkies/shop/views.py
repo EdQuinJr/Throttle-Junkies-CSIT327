@@ -7,6 +7,11 @@ from django.db.models import Sum, F
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
+from django.http import Http404
+import logging
+from django.template.exceptions import TemplateDoesNotExist
+
+logger = logging.getLogger(__name__)
 
 def home(request):
     products = Products.objects.all()
@@ -72,11 +77,14 @@ def logout_view(request):
 def about_view(request):
     return render(request, 'about.html')
 
-def Xsr_view(request):
+def xsr_view(request):
     return render(request, 'Xsr.html')
 
-def Yzfr1_view(request):
-    return render(request, 'Yzfr1.html')
+def nmax_view(request):
+    return render(request, 'Nmax.html')
+
+def yzf_r1_view(request):
+    return render(request, 'Yzf-r1.html')
 
 def search(request):
     query = request.GET.get('q', '')  # Get search keywords
@@ -135,6 +143,7 @@ def add_to_cart(request, product_id):
 
     messages.success(request, f'{product.name} has been added to your cart.')
     return redirect('cart_view')  # Redirect to the cart view
+
 
 # View to update the quantity of a cart item
 @login_required
@@ -202,7 +211,9 @@ def order_confirmation(request, order_id):
         return render(request, 'order_confirmation.html', {'order': order})
     except Orders.DoesNotExist:
         messages.error(request, 'Order not found.')
-        return redirect('cart_view')
+        return redirect('home')
+
+
 @csrf_exempt
 def proceed_payment(request):
     if request.method == "POST":

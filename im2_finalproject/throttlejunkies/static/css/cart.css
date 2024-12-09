@@ -81,20 +81,44 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
+    background: black;
+    padding: 40px; /* Increased padding for a larger modal */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increased box shadow for better visibility */
     z-index: 1000;
+    width: 70%;  /* Increase width for a larger modal */
+    max-width: 600px; /* Max width to prevent modal from being too wide */
+    height: auto; /* Adjust height based on content */
+    overflow-y: auto; /* Scroll if content overflows */
+}
+
+.checkout-modal h2 {
+    color: #ffcc00;  /* Color the header as per your design */
+    text-align: center; /* Center the header */
+    font-size: 2rem; /* Adjust font size */
+    margin-bottom: 20px;
 }
 
 .checkout-modal form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px; /* Increased gap between form elements */
 }
 
-.modal-buttons {
-    display: flex;
-    justify-content: space-between;
+.checkout-modal label {
+    color: white; /* Set label text color to white */
+    font-size: 1.2rem; /* Adjust label font size */
+}
+
+.checkout-modal input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Light border for inputs */
+}
+
+.checkout-modal button {
+    margin-top: 15px;
+    margin-right: 13px;
+    padding-right: 15px;
 }

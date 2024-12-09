@@ -97,7 +97,6 @@ function checkout() {
     document.querySelector('.overlay').style.display = 'block';
     document.querySelector('.checkout-modal').style.display = 'block';
 }
-
 function proceedPayment() {
     const fullName = document.getElementById('full-name').value;
     const creditCard = document.getElementById('credit-card').value;
@@ -112,6 +111,8 @@ function proceedPayment() {
     const orderId = checkoutButton.getAttribute('data-order-id');
     const amount = checkoutButton.getAttribute('data-total-amount');
 
+    console.log(`Proceeding with order ID: ${orderId}, amount: ${amount}`);
+
     fetch('/proceed-payment/', {
         method: 'POST',
         headers: {
@@ -125,8 +126,8 @@ function proceedPayment() {
     })
         .then(response => response.json())
         .then(data => {
+            console.log(data);  // Log the response data for debugging
             if (data.success) {
-                // Use template literals to include fullName and creditCard in the alert
                 alert(`Payment successful for ${fullName} with card number ${creditCard}.`);
                 cancelPayment();
             } else {
@@ -138,6 +139,7 @@ function proceedPayment() {
             console.error('Error:', error);
         });
 }
+
 
 
 
