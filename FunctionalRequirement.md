@@ -1,4 +1,4 @@
-**MotoDeal: Digital Motorcycle Sales System**
+**Throttle Junkies: Digital Motorcycle Sales System**
 
 Prepared for: Joemarie Amparo
 
@@ -9,7 +9,7 @@ August 21, 2024
 
 ### **1. Introduction** {#introduction}
 
-**MotoDeal: Digital Motorcycle Sales System** is designed to provide a
+**Throttle Junkies: Digital Motorcycle Sales System** is designed to provide a
 seamless and efficient experience for users interested in exploring and
 purchasing motorcycles and related accessories. MotoDeal combines
 essential features like product exploration, secure checkout, and user
