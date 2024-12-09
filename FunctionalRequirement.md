@@ -56,35 +56,18 @@ catering to both casual buyers and motorcycle enthusiasts.
 > **Key Features**: Motorcycle browsing, filtering options, detailed
 > product descriptions.
 
-- **Explore Parts/Accessories  
-  **Users can explore a wide selection of motorcycle parts and
-  accessories on the platform. The system provides comprehensive product
-  descriptions, images, and compatibility information to help users make
-  informed decisions.
-
-> **Inputs**: Part/Accessory preferences (e.g., type, brand,
-> compatibility).
->
-> **Outputs**: List of parts and accessories with relevant details,
-> including specifications, pricing, and images.
->
-> **Key Features**: Product browsing, detailed descriptions,
-> compatibility information.
 
 - **Purchase/Checkout Function  
   **MotoDeal includes a secure and efficient purchase and checkout
-  process. Users can add motorcycles, parts, or accessories to their
-  cart, review their selections, and complete purchases using various
-  payment methods.
+  process. Users can add motorcycles
+  cart, review their selections, and complete purchases.
 
-> **Inputs**: Selected products (e.g., motorcycles, parts), payment
+> **Inputs**: Selected products (e.g., motorcycles), payment
 > details.
 >
-> **Outputs**: Order confirmation, transaction receipt, delivery
-> details.
+> **Outputs**: Order confirmation, transaction receipt
 >
-> **Key Features**: Shopping cart, secure checkout, multiple payment
-> options, order tracking.
+> **Key Features**: Shopping cart, secure checkout
 
 - **User Authentication  
   **Users must create an account to access personalized features such as
@@ -104,7 +87,7 @@ catering to both casual buyers and motorcycle enthusiasts.
   refined using keywords, categories, and filters to ensure the most
   relevant results are displayed.
 
-> **Inputs**: Search keywords, filters (e.g., category, price, brand).
+> **Inputs**: Search keywords, filters (e.g., category, brand).
 >
 > **Outputs**: Search results with relevant products, sorted and
 > filtered based on user input.
