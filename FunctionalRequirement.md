@@ -11,7 +11,7 @@ August 21, 2024
 
 **Throttle Junkies: Digital Motorcycle Sales System** is designed to provide a
 seamless and efficient experience for users interested in exploring and
-purchasing motorcycles and related accessories. MotoDeal combines
+purchasing motorcycles. MotoDeal combines
 essential features like product exploration, secure checkout, and user
 authentication, ensuring a comprehensive and user-friendly platform.
 With its robust functionality, MotoDeal simplifies the buying process,
