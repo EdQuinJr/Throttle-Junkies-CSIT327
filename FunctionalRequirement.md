@@ -79,7 +79,7 @@ catering to both casual buyers and motorcycle enthusiasts.
 > **Outputs**: Account creation confirmation, login verification, error
 > messages for invalid inputs.
 >
-> **Key Features**: Sign-up/Login, Profile Management, secure access.
+> **Key Features**: Sign-up/Login, secure access.
 
 - **Search Function  
   **The platform offers a robust search function that allows users to
