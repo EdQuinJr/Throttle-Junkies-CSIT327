@@ -19,7 +19,7 @@ supports social sharing, and offers administrative tools for managing
 the system effectively.
 
 MotoDeal aims to make the process of discovering, purchasing, and
-managing motorcycles and accessories straightforward and engaging,
+managing motorcycles straightforward and engaging,
 catering to both casual buyers and motorcycle enthusiasts.
 
 - **Purpose**:  
